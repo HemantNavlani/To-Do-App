@@ -1,7 +1,9 @@
 import ToDo from "../ToDo/ToDo"
+import ToDoContext from "../../context/ToDoContext";
+import { useContext } from "react";
 
-function ToDoList({list,updateList}){
-   
+function ToDoList(){
+   const {list,setList} =useContext(ToDoContext)
 
     return(
         <div>
@@ -19,7 +21,20 @@ function ToDoList({list,updateList}){
                 }
                 return t;
             })
-            updateList(updatedList)
+            setList(updatedList)
+        }}
+        onDelete={()=>{
+            const updatedList = list.filter(t=>t.id!=todo.id)
+            setList(updatedList)
+        }}
+        onEdit={(todoText)=>{
+            const updatedList = list.map(t=>{
+                if (t.id==todo.id){
+                    todo.todoData=todoText;
+                }
+                return t;
+            })
+            setList(updatedList)
         }}
         />)
     }
