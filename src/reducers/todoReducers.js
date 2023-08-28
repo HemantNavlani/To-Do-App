@@ -2,7 +2,7 @@ function todoReducer(state,action){
     if (action.type=='add_todo'){
         let todoText = action.payload.todoText;
         return[
-            ...state,{id:state.length+1,todoData:todoText,finished:false}
+            ...state,{id:(state.length==0)?1:state[state.length-1].id+1,todoData:todoText,finished:false}
         ]
 
     }
