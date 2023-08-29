@@ -8,7 +8,10 @@ import { bindActionCreators } from 'redux'
 // import ToDoDispatchContext from './context/ToDoDispatchContext';
 // import todoReducer from './reducers/todoReducers';
 
-import { addTodo,deleteTodo,editTodo,todoFinished } from './actions/todoActions'
+// import { addTodo,deleteTodo,editTodo,todoFinished } from './actions/todoActions'
+
+
+import todoReducer,{deleteTodo,addTodo,editTodo,todoFinished} from './slices/todoSlice'
 
 function App() {
 const dispatch = useDispatch()

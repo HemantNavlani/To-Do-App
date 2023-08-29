@@ -1,43 +1,43 @@
-function todoReducer(state=[],action){
-    if (action.type=='add_todo'){
-        let todoText = action.payload.todoText;
-        return[
-            ...state,{id:(state.length==0)?1:state[state.length-1].id+1,todoData:todoText,finished:false}
-        ]
+// function todoReducer(state=[],action){
+//     if (action.type=='add_todo'){
+//         let todoText = action.payload.todoText;
+//         return[
+//             ...state,{id:(state.length==0)?1:state[state.length-1].id+1,todoData:todoText,finished:false}
+//         ]
 
-    }
-    else if (action.type=='edit_todo'){
-        let todo = action.payload.todo;
-        let todoText = action.payload.todoText;
+//     }
+//     else if (action.type=='edit_todo'){
+//         let todo = action.payload.todo;
+//         let todoText = action.payload.todoText;
 
-        const updatedList = state.map(t=>{
-            if (t.id==todo.id){
-                todo.todoData=todoText;
-            }
-            return t;
-        })
-        return updatedList;
-    }
+//         const updatedList = state.map(t=>{
+//             if (t.id==todo.id){
+//                 todo.todoData=todoText;
+//             }
+//             return t;
+//         })
+//         return updatedList;
+//     }
 
-    else if(action.type =='delete_todo'){
-        let todo= action.payload.todo;
-        const updatedList = state.filter(t=>t.id!=todo.id);
-        return updatedList
-    }
-    else if (action.type=='finish-todo'){
-        let todo= action.payload.todo;
-        let isFinished = action.payload.isFinished;
-        const updatedList = state.map(t=>{
-            if (t.id==todo.id){
-                todo.finished=isFinished;
-            }
-            return t;
-        })
-        return updatedList;
-    }
-    else{
-        return state;
-    }
-}
+//     else if(action.type =='delete_todo'){
+//         let todo= action.payload.todo;
+//         const updatedList = state.filter(t=>t.id!=todo.id);
+//         return updatedList
+//     }
+//     else if (action.type=='finish-todo'){
+//         let todo= action.payload.todo;
+//         let isFinished = action.payload.isFinished;
+//         const updatedList = state.map(t=>{
+//             if (t.id==todo.id){
+//                 todo.finished=isFinished;
+//             }
+//             return t;
+//         })
+//         return updatedList;
+//     }
+//     else{
+//         return state;
+//     }
+// }
 
-export default todoReducer
+// export default todoReducer

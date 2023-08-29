@@ -23,7 +23,7 @@ function AddToDo({addTodo}){
             <button onClick={()=>{
                 // dispatch({type:'add_todo',payload:{todoText:inputText}})
                 // dispatch(addTodo(inputText))
-                addTodo(inputText)
+                addTodo({todoText:inputText})
                 setInputText('')
             }
             }>Add</button>

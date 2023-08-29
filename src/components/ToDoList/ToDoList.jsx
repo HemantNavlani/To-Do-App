@@ -10,24 +10,24 @@ function ToDoList({editTodo,deleteTodo,todoFinished}){
 
 
 //    const {list} =useContext(ToDoContext)
-const list = useSelector((state)=>state.todo)
-
+const list = useSelector((state)=>state.todo.todoList)
+console.log(list)
 
 //    const{dispatch} = useContext(ToDoDispatchContext)
 // const dispatch = useDispatch();
 
     function onFinished(todo,isFinished){
         // dispatch({type:'finish_todo',payload:{todo,isFinished:isFinished}})
-        todoFinished(todo,isFinished)
+        todoFinished({todo,isFinished})
     }
 
     function onDelete(todo){
-        deleteTodo(todo)
+        deleteTodo({todo})
         // dispatch({type:'delete_todo',payload:{todo}})
     }
 
     function onEdit(todo,todoText){
-        editTodo(todo,todoText)
+        editTodo({todo,todoText})
         // dispatch({type:'edit_todo',payload:{todo,todoText}})
     }
 
