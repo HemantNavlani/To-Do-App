@@ -1,22 +1,34 @@
-import ToDo from "../ToDo/ToDo"
-import ToDoContext from "../../context/ToDoContext";
-import { useContext } from "react";
-import ToDoDispatchContext from "../../context/ToDoDispatchContext";
+// import { useDispatch, useSelector } from "react-redux"
+import {  useSelector } from "react-redux"
 
-function ToDoList(){
-   const {list} =useContext(ToDoContext)
-   const{dispatch} = useContext(ToDoDispatchContext)
+import ToDo from "../ToDo/ToDo"
+// import ToDoContext from "../../context/ToDoContext";
+// import { useContext } from "react";
+// import ToDoDispatchContext from "../../context/ToDoDispatchContext";
+
+function ToDoList({editTodo,deleteTodo,todoFinished}){
+
+
+//    const {list} =useContext(ToDoContext)
+const list = useSelector((state)=>state.todo)
+
+
+//    const{dispatch} = useContext(ToDoDispatchContext)
+// const dispatch = useDispatch();
 
     function onFinished(todo,isFinished){
-        dispatch({type:'finish_todo',payload:{todo,isFinished:isFinished}})
+        // dispatch({type:'finish_todo',payload:{todo,isFinished:isFinished}})
+        todoFinished(todo,isFinished)
     }
 
     function onDelete(todo){
-        dispatch({type:'delete_todo',payload:{todo}})
+        deleteTodo(todo)
+        // dispatch({type:'delete_todo',payload:{todo}})
     }
 
     function onEdit(todo,todoText){
-        dispatch({type:'edit_todo',payload:{todo,todoText}})
+        editTodo(todo,todoText)
+        // dispatch({type:'edit_todo',payload:{todo,todoText}})
     }
 
 
